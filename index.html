@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentine's Day My Wifeyyy</title>
+    <!-- Memuat font Montserrat dari Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="love-letter.png">
+    <style>
+        /* Menerapkan font Montserrat ke seluruh elemen */
+        body {
+            font-family: 'Montserrat', Arial, sans-serif;
+            text-align: center;
+            background-color: #f9e3e3;
+            color: #d6336c;
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            cursor: url('heart (3).png') 16 16, auto; /* Gambar kursor */
+            overflow: hidden; /* Mencegah scrollbar muncul karena animasi */
+            position: relative; /* Untuk posisi absolute pada hati */
+        }
+        section {
+            display: none;
+            text-align: center;
+            max-width: 90%;
+            margin: auto;
+        }
+        section.active {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        /* Mengatur ukuran gambar agar konsisten */
+        img {
+            max-width: 500px; /* Sesuaikan ukuran maksimum gambar */
+            height: auto; /* Menjaga aspek rasio gambar */
+            border-radius: 10px;
+            margin-bottom: 5px; /* Jarak antara gambar dan teks */
+        }
+        video {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+        /* CSS khusus untuk video di Section 4 */
+        #section4 video {
+            max-width: 300px; /* Lebar maksimum video portrait */
+            height: auto; /* Tinggi disesuaikan secara otomatis */
+        }
+        button {
+            padding: 10px 20px;
+            margin: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #d6336c;
+            color: white;
+            cursor: pointer;
+            font-family: 'Montserrat', Arial, sans-serif;
+            font-weight: 700; /* Tebal */
+            cursor: url('heart (3).png') 16 16, pointer; /* Gambar kursor khusus pada tombol */
+        }
+        button:hover {
+            background-color: #b02a57;
+        }
+        #response, #love-message {
+            margin-top: 20px;
+            font-family: 'Montserrat', Arial, sans-serif;
+        }
+        #love-message {
+            font-size: 24px;
+            font-weight: 700; /* Tebal */
+        }
+        /* Mengatur teks agar tidak tergeser ke kanan */
+        p {
+            max-width: 600px; /* Lebar maksimum teks */
+            margin: 0 auto; /* Pusatkan teks */
+            padding: 10px;
+            word-wrap: break-word; /* Memastikan teks turun ke baris baru jika panjang */
+            overflow-wrap: break-word; /* Alternatif untuk word-wrap */
+            white-space: normal; /* Memastikan teks tidak tetap dalam satu baris */
+        }
+        /* Animasi hati */
+        .heart {
+            position: absolute;
+            top: -10%;
+            color: #d6336c;
+            font-size: 20px;
+            animation: fall 10s linear infinite;
+        }
+        @keyframes fall {
+            0% {
+                transform: translateY(-10%) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(110vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Musik latar belakang -->
+    <audio id="bg-music" autoplay loop>
+        <source src="No. 1 Party Anthem (320).mp3" type="audio/mpeg">
+        Browser Anda tidak mendukung elemen audio.
+    </audio>
+
+    <!-- Efek suara tombol -->
+    <audio id="button-sound">
+        <source src="gtagadga.mp3" type="audio/mpeg">
+        Browser Anda tidak mendukung elemen audio.
+    </audio>
+
+    <!-- Section 1 -->
+    <section id="section1" class="active">
+        <img src="S__22945794.jpg" alt="Foto Pacar">
+        <p>happy valentines day ya sayangku cintaku, this is all about you, click Iya kalau kamu mau tau pandangan aku ke kamu.</p>
+        <div>
+            <button onclick="playSound(); showResponse('no')">Tidak</button>
+            <button onclick="playSound(); nextSection('section2')">Iya</button>
+        </div>
+        <p id="response" style="display:none; color:red;">kamu ga sayang sama aku ya cinta :(</p>
+    </section>
+
+    <!-- Section 2 -->
+    <section id="section2">
+        <img src="S__22953986.jpg" alt="Foto Pacar2">
+        <p>salsabilla puteri naia saira, biasanya aku panggil naia, lahir pada tanggal 10 oktober tahun 2007, she's a loving partner walaupun kadang suka ngambek (i love that side of you)</p>
+        <div>
+            <button onclick="playSound(); prevSection('section1')">Back</button>
+            <button onclick="playSound(); nextSection('section3')">Next</button>
+        </div>
+    </section>
+
+    <!-- Section 3 -->
+    <section id="section3">
+        <video controls>
+            <source src="pedidididi.mp4" type="video/mp4">
+            Browser Anda tidak mendukung elemen video.
+        </video>
+        <p>not officialy our first date, but this is the first time i kiss ur head and smell ur hair sayang, i really love the smell of u :)</p>
+        <div>
+            <button onclick="playSound(); prevSection('section2')">Back</button>
+            <button onclick="playSound(); nextSection('section4')">Next</button>
+        </div>
+    </section>
+
+    <!-- Section 4 -->
+    <section id="section4">
+        <video controls>
+            <source src="761158797.335325.mp4" type="video/mp4">
+            Browser Anda tidak mendukung elemen video.
+        </video>
+        <p>walaupun kita belum sampai 1 bulan, i hope our relationship last forever sampai kita married and till our last breath sayang</p>
+        <div>
+            <button onclick="playSound(); prevSection('section3')">Back</button>
+            <button onclick="playSound(); nextSection('section5')">Next</button>
+        </div>
+    </section>
+
+    <!-- Section 5 -->
+    <section id="section5">
+        <video controls>
+            <source src="SKIBIDI.mp4" type="video/mp4">
+            Browser Anda tidak mendukung elemen video.
+        </video>
+        <p>Thanks for accepting my love for you, you are the love of my life, my everything, you are a great partner, great daughter, and of course a great person, i hope my love for you will be accepted by your parents especially your mom sayang hahahahaha</p>
+        <div>
+            <button onclick="playSound(); prevSection('section4')">Back</button>
+            <button onclick="playSound(); showLove()">Ending</button>
+        </div>
+        <p id="love-message" style="display:none; font-size:24px; color:#d6336c;">I LOVE YOU SO MUCH</p>
+    </section>
+
+    <script>
+        // Fungsi untuk memutar suara tombol
+        function playSound() {
+            const buttonSound = document.getElementById('button-sound');
+            buttonSound.currentTime = 0; // Reset audio ke awal
+            buttonSound.play(); // Memutar suara
+        }
+
+        // Fungsi untuk pindah ke section berikutnya
+        function nextSection(next) {
+            document.querySelector('.active').classList.remove('active');
+            document.getElementById(next).classList.add('active');
+        }
+
+        // Fungsi untuk kembali ke section sebelumnya
+        function prevSection(prev) {
+            document.querySelector('.active').classList.remove('active');
+            document.getElementById(prev).classList.add('active');
+        }
+
+        // Fungsi untuk menampilkan respons "Tidak"
+        function showResponse(response) {
+            if (response === 'no') {
+                document.getElementById('response').style.display = 'block';
+            }
+        }
+
+        // Fungsi untuk menampilkan pesan "I LOVE YOU"
+        function showLove() {
+            document.getElementById('love-message').style.display = 'block';
+        }
+
+        // Fungsi untuk membuat animasi hati
+        function createHearts() {
+            const heartContainer = document.body;
+            const heartCount = 50; // Jumlah hati yang ingin ditampilkan
+
+            for (let i = 0; i < heartCount; i++) {
+                const heart = document.createElement('div');
+                heart.classList.add('heart');
+                heart.innerHTML = '❤️'; // Simbol hati
+                heart.style.left = Math.random() * 100 + 'vw'; // Posisi horizontal acak
+                heart.style.animationDuration = Math.random() * 5 + 5 + 's'; // Durasi animasi acak
+                heart.style.fontSize = Math.random() * 20 + 10 + 'px'; // Ukuran hati acak
+                heartContainer.appendChild(heart);
+            }
+        }
+
+        // Panggil fungsi untuk membuat hati saat halaman dimuat
+        createHearts();
+    </script>
+</body>
+</html>
